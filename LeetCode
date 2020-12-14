@@ -1,3 +1,7 @@
+"""
+Program which checks if a sodoku grid is valid before playing
+"""
+
 class Solution:
     def isValidSudoku(self, board):
         grid = {}
