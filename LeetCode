@@ -1,0 +1,30 @@
+class Solution:
+    def isValidSudoku(self, board):
+        grid = {}
+        x = {}
+        y = {}
+        for i in range(9):
+            x[i] = board[i]
+            y[i] = []
+            print(x[i])
+            for j in range(9):
+                y[i].append(board[j][i])
+ 
+
+        blocks = []
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                blocks.append(board[i][j:j+3] + board[i+1][j:j+3] + board[i+2][j:j+3])
+                
+        for i in blocks:
+            print(i)
+                
+        for i in range(9):
+            for item in range(1,10):
+                if x[i].count(str(item)) > 1:
+                    return False
+                if y[i].count(str(item)) > 1:
+                    return False
+                if blocks[i].count(str(item)) > 1:
+                    return False
+        return True
